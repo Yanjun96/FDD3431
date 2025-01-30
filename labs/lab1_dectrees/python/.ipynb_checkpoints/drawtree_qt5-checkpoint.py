@@ -12,7 +12,7 @@ class MyPainting(QWidget):
         QWidget.__init__(self)
         self.tree = tree
         self.xsize = 600
-        self.ysize = 600
+        self.ysize = 300
 
     def sizeHint(self):
         return QtCore.QSize(self.xsize, self.ysize)
