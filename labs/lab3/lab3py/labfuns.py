@@ -107,20 +107,20 @@ def trteSplitEven(X,y,pcSplit,seed=None):
 def fetchDataset(dataset='iris'):
     if dataset == 'iris':
         X = genfromtxt('irisX.txt', delimiter=',')
-        y = genfromtxt('irisY.txt', delimiter=',',dtype=np.int)-1
+        y = genfromtxt('irisY.txt', delimiter=',',dtype=np.int64)-1
         pcadim = 2
     elif dataset == 'wine':
         X = genfromtxt('wineX.txt', delimiter=',')
-        y = genfromtxt('wineY.txt', delimiter=',',dtype=np.int)-1
+        y = genfromtxt('wineY.txt', delimiter=',',dtype=np.int64)-1
         pcadim = 0
     elif dataset == 'olivetti':
         X = genfromtxt('olivettifacesX.txt', delimiter=',')
         X = X/255
-        y = genfromtxt('olivettifacesY.txt', delimiter=',',dtype=np.int)
+        y = genfromtxt('olivettifacesY.txt', delimiter=',',dtype=np.int64)
         pcadim = 20
     elif dataset == 'vowel':
         X = genfromtxt('vowelX.txt', delimiter=',')
-        y = genfromtxt('vowelY.txt', delimiter=',',dtype=np.int)
+        y = genfromtxt('vowelY.txt', delimiter=',',dtype=np.int64)
         pcadim = 0
     else:
         print("Please specify a dataset!")
@@ -150,7 +150,7 @@ def scatter2D(X,y):
         Xclass = X[classIdx,:]
         plt.scatter(Xclass[:,0],Xclass[:,1],linewidths=1,s=25,color=colors[label],marker='o',alpha=0.75)
         c += 1.
-
+    plt.tight_layout()    
     plt.show()
 
 
@@ -167,7 +167,7 @@ def plotGaussian(X,y,mu,sigma):
         plot_cov_ellipse(sigma[label], mu[label])
         plt.scatter(Xclass[:,0],Xclass[:,1],linewidths=1,s=25,color=colors[label],marker='o',alpha=0.95)
         c += 1.
-
+    plt.tight_layout()
     plt.show()
 
 
@@ -258,6 +258,8 @@ def plotBoundary(classifier, dataset='iris', split=0.7):
         plt.scatter(xTe[teClIdx,0],xTe[teClIdx,1],marker='*',c=color,s=50,alpha=0.8, label="Class "+str(c)+" Test")
     plt.legend(bbox_to_anchor=(1., 1), loc=2, borderaxespad=0.)
     fig.subplots_adjust(right=0.7)
+    plt.tight_layout()
+    
     plt.show()
 
 
@@ -276,6 +278,8 @@ def visualizeOlivettiVectors(xTr, Xte):
         plt.title("Matched class training image %i" % (i+1))
         X = xTr[i, :].reshape(64, 64).transpose()
         plt.imshow(X, cmap=plt.get_cmap('gray'))
+    plt.tight_layout()
+    
     plt.show()
 
 
