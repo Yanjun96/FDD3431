@@ -6,7 +6,8 @@ import matplotlib.cm as cm
 from matplotlib.patches import Ellipse
 from matplotlib.colors import ColorConverter
 import random as rnd
-from sklearn.datasets.samples_generator import make_blobs
+from sklearn.datasets import make_blobs
+#from sklearn.datasets.samples_generator import make_blobs
 from sklearn import decomposition, tree
 
 # import seaborn as sns
@@ -164,7 +165,7 @@ def plotGaussian(X,y,mu,sigma):
         classIdx = y==label
         Xclass = X[classIdx,:]
         plot_cov_ellipse(sigma[label], mu[label])
-        plt.scatter(Xclass[:,0],Xclass[:,1],linewidths=1,s=25,color=colors[label],marker='o',alpha=0.75)
+        plt.scatter(Xclass[:,0],Xclass[:,1],linewidths=1,s=25,color=colors[label],marker='o',alpha=0.95)
         c += 1.
 
     plt.show()
