@@ -198,6 +198,7 @@ def testClassifier(classifier, dataset='iris', dim=0, split=0.7, ntrials=100):
         trained_classifier = classifier.trainClassifier(xTr, yTr)
         # Predict
         yPr = trained_classifier.classify(xTe)
+    
 
         # Compute classification error
         if trial % 10 == 0:
