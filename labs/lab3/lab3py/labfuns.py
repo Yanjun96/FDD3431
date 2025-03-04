@@ -289,7 +289,7 @@ class DecisionTreeClassifier(object):
 
     def trainClassifier(self, Xtr, yTr, W=None):
         rtn = DecisionTreeClassifier()
-        rtn.classifier = tree.DecisionTreeClassifier(max_depth=Xtr.shape[1]/2+1)
+        rtn.classifier = tree.DecisionTreeClassifier(max_depth= int( Xtr.shape[1]/2+1) )
         if W is None:
             rtn.classifier.fit(Xtr, yTr)
         else:

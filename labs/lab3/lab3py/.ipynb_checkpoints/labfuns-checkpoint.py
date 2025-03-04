@@ -259,6 +259,7 @@ def plotBoundary(classifier, dataset='iris', split=0.7):
     plt.legend(bbox_to_anchor=(1., 1), loc=2, borderaxespad=0.)
     fig.subplots_adjust(right=0.7)
     plt.tight_layout()
+    
     plt.show()
 
 
@@ -278,6 +279,7 @@ def visualizeOlivettiVectors(xTr, Xte):
         X = xTr[i, :].reshape(64, 64).transpose()
         plt.imshow(X, cmap=plt.get_cmap('gray'))
     plt.tight_layout()
+    
     plt.show()
 
 
@@ -287,7 +289,7 @@ class DecisionTreeClassifier(object):
 
     def trainClassifier(self, Xtr, yTr, W=None):
         rtn = DecisionTreeClassifier()
-        rtn.classifier = tree.DecisionTreeClassifier(max_depth=Xtr.shape[1]/2+1)
+        rtn.classifier = tree.DecisionTreeClassifier(max_depth= int( Xtr.shape[1]/2+1) )
         if W is None:
             rtn.classifier.fit(Xtr, yTr)
         else:
