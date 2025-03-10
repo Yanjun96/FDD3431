@@ -207,8 +207,6 @@ class BayesClassifier(object):
 
 
 
-
-
 #################################### boost related function ######################
 
 

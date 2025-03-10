@@ -66,7 +66,6 @@ def fetchDataset(dataset='iris'):
         y = genfromtxt('irisY.txt', delimiter=',',dtype=np.int64)-1
         pcadim = 2
     elif dataset == 'challenge':
-       import pandas as pd
        from sklearn.preprocessing import LabelEncoder
        df = pd.read_csv('TrainOnMe-1d3c80f1-d0b9-436e-9bcf-f50f94c66e0b.csv')
        y = df.iloc[:, 1].values  
@@ -76,9 +75,7 @@ def fetchDataset(dataset='iris'):
        X = X.values
        encoder1 = LabelEncoder()
        y = encoder1.fit_transform(y)
-       #y = y.values
-       pcadim = 12
-        
+       pcadim = 12       
     return X,y,pcadim
 
 
